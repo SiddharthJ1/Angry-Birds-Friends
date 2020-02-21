@@ -4,14 +4,14 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
 var engine, world;
-var box1, pig1,pig3;
+var box1, pig1,pig3,pig2,pig4;
 var backgroundImg,platform;
-var bird, slingshot;
+var bird,bird1,bird2, slingshot;
 
 var gameState = "onSling";
 var bg = "sprites/bg1.png";
 var score = 0;
-
+var IMG="sprites/Kaveesh.png"
 function preload() {
     getBackgroundImg();
 }
@@ -24,7 +24,7 @@ function setup(){
 
     ground = new Ground(600,height,1200,20);
     platform = new Ground(150, 305, 300, 170);
-
+    
     box1 = new Box(700,320,70,70);
     box2 = new Box(920,320,70,70);
     pig1 = new Pig(810, 350);
@@ -33,6 +33,8 @@ function setup(){
     box3 = new Box(700,240,70,70);
     box4 = new Box(920,240,70,70);
     pig3 = new Pig(810, 220);
+    pig4= new Pig(950,250)
+    pig2= new Pig(900,230);
 
     log3 =  new Log(810,180,300, PI/2);
 
@@ -41,6 +43,8 @@ function setup(){
     log5 = new Log(870,120,150, -PI/7);
 
     bird = new Bird(200,50);
+    bird1= new Bird(150,50);
+    bird2= new Bird(100,50);
 
     //log6 = new Log(230,180,80, PI/2);
     slingshot = new SlingShot(bird.body,{x:200, y:50});
@@ -49,7 +53,7 @@ function setup(){
 function draw(){
     if(backgroundImg)
         background(backgroundImg);
-    
+      
         noStroke();
         textSize(35)
         fill("white")
@@ -69,12 +73,16 @@ function draw(){
     pig3.display();
     pig3.score();
     log3.display();
+    pig4.display();
+    pig2.display();
 
     box5.display();
     log4.display();
     log5.display();
 
     bird.display();
+    bird1.display();
+    bird2.display();
     platform.display();
     //log6.display();
     slingshot.display();    
